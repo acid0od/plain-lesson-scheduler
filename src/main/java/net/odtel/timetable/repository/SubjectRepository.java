@@ -1,10 +1,3 @@
-/* ===========================================================================
- * Copyright (c) 2015 Comcast Corp. All rights reserved.
- * ===========================================================================
- *
- * Author: Alexander Ievstratiev
- * Created: 04/16/2018  7:06 PM
- */
 package net.odtel.timetable.repository;
 
 import net.odtel.timetable.model.Subject;

@@ -1,10 +1,3 @@
-/* ===========================================================================
- * Copyright (c) 2015 Comcast Corp. All rights reserved.
- * ===========================================================================
- *
- * Author: Alexander Ievstratiev
- * Created: 04/16/2018  6:59 PM
- */
 package net.odtel.timetable.model;
 
 import lombok.AllArgsConstructor;
@@ -25,4 +18,6 @@ public class Subject {
     private String name;
 
     private int credits;
+
+
 }
