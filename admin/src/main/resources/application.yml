@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /timeplan
+
+spring:
+  data:
+    cassandra:
+        keyspace-name: scheduler
+        contact-points: localhost
+
+#spring:
+#    mvc:
+#        static-path-pattern: /resources/**
+#    view:
+#        prefix: /static/
+#        suffix: .html
+
+spring:
+    resources:
+        chain:
+            strategy:
+                content:
+                    enabled: true
+                    paths: /**
+
+#TODO: figure out why I need this here and in bootstrap.yml
+spring:
+  application:
+    name: testLatticeApp
+
+ribbon:
+  ServerListRefreshInterval: 1000
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true

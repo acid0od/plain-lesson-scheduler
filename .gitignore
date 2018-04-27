@@ -21,7 +21,51 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+# IDEs and editors
 .idea
 *.iml
-target
-src/main/resources/*.properties
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+#
+admin/target
+admin/src/main/resources/*.properties
+
+# compiled output
+fronted/dist
+fronted/dist-server
+fronted/tmp
+fronted/out-tsc
+
+# dependencies
+fronted/node_modules/**
+
+# misc
+fronted/.sass-cache
+fronted/connect.lock
+fronted/coverage
+fronted/libpeerconnection.log
+fronted/npm-debug.log
+fronted/yarn-error.log
+fronted/testem.log
+fronted/typings
+
+# e2e
+fronted/e2e/*.js
+fronted/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
