@@ -46,6 +46,12 @@ public class SchedulerController {
         return new ResponseEntity<>(schedulerService.getSubjectCourse(subject), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/subjectCourse/")
+    public ResponseEntity<List<SubjectCourse>> getSubjectCourses() {
+        return new ResponseEntity<>(schedulerService.getAllSubjectCourses(), HttpStatus.OK);
+    }
+
+
     @GetMapping(path = "/")
     public ResponseEntity<List<Scheduler>> getAllScheduler() {
         return new ResponseEntity<>(schedulerService.getAllSchedulers(), HttpStatus.OK);

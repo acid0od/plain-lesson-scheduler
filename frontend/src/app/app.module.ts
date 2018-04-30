@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { NotificationModule } from './notification/notification.module';
 import { SchedulerModule } from './scheduler/scheduler.module';
 import { NoContentComponent } from './no-content/no-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -17,12 +18,14 @@ import { NoContentComponent } from './no-content/no-content.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    BrowserAnimationsModule,
     SharedModule.forRoot(),
     NotificationModule,
-    SchedulerModule
+    SchedulerModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

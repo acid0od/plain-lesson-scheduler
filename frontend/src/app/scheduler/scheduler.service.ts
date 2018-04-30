@@ -10,6 +10,11 @@ export class SchedulerService {
   constructor(private api: ApiService) {
   }
 
-  public getSubjectCourse(): Observable<SubjectCourse> {
-    return this.api.get<SubjectCourse>(this.apiUrl + "/Primary");
-  }}
+  public getSubjectCourse(subjectName: string): Observable<SubjectCourse> {
+    return this.api.get<SubjectCourse>(this.apiUrl + subjectName);
+  }
+
+  public getSubjectCourses(): Observable<SubjectCourse[]> {
+    return this.api.get<SubjectCourse[]>(this.apiUrl);
+  }
+}

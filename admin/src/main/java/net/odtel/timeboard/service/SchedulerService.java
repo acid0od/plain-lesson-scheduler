@@ -9,13 +9,12 @@ package net.odtel.timeboard.service;
 
 import com.datastax.driver.core.utils.UUIDs;
 import net.odtel.timeboard.model.Scheduler;
-import net.odtel.timeboard.model.Subject;
 import net.odtel.timeboard.model.SubjectCourse;
-import net.odtel.timeboard.model.TeachingForm;
 import net.odtel.timeboard.repository.SchedulerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +60,31 @@ public class SchedulerService {
                 .peek(scheduler -> course.add(scheduler.getSubjectType(), scheduler.getHours()))
                 .collect(Collectors.toList());
 
-
         return course;
+    }
+
+    public List<SubjectCourse> getAllSubjectCourses() {
+        List<SubjectCourse> courses = new ArrayList<>();
+
+        Map<String, List<SubjectCourse>> collect = StreamSupport
+                .stream(repository.findAll().spliterator(), false)
+                .map(scheduler -> new SubjectCourse(scheduler.getSubjectName(), scheduler.getSubjectType(), scheduler.getHours()))
+                .collect(Collectors.groupingBy(SubjectCourse::getTitle));
+
+        for (Map.Entry<String, List<SubjectCourse>> stringListEntry : collect.entrySet()) {
+
+            List<SubjectCourse> value = stringListEntry.getValue();
+
+            SubjectCourse subjectCourse1 = new SubjectCourse();
+            subjectCourse1.setTitle(stringListEntry.getKey());
+
+            for (SubjectCourse subjectCourse : value) {
+                subjectCourse1.add(subjectCourse.getTeachingForms());
+            }
+
+            courses.add(subjectCourse1);
+        }
+
+        return courses;
     }
 }

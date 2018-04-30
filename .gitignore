@@ -50,6 +50,7 @@ fronted/tmp
 fronted/out-tsc
 
 # dependencies
+fronted/node_modules
 fronted/node_modules/**
 
 # misc

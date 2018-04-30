@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -18,7 +19,12 @@ import java.util.Map;
 @NoArgsConstructor
 public class SubjectCourse {
     private String title;
-    private Map<String, Integer> teachingForms;
+    private Map<String, Integer> teachingForms = new HashMap<>();
+
+    public SubjectCourse(String title, String subjectType, int hours) {
+        this.title = title;
+        this.teachingForms.put(subjectType, hours);
+    }
 
     public void add(String subjectType, int hours) {
         Integer addedHours = hours;
@@ -27,5 +33,11 @@ public class SubjectCourse {
         }
 
         teachingForms.put(subjectType, addedHours);
+    }
+
+    public void add(Map<String,Integer> teachingForms) {
+        for (Map.Entry<String, Integer> stringIntegerEntry : teachingForms.entrySet()) {
+            this.add(stringIntegerEntry.getKey(), stringIntegerEntry.getValue());
+        }
     }
 }
