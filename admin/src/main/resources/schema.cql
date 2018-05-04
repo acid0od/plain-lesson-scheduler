@@ -13,7 +13,7 @@ CREATE TABLE scheduler (
 );
 
 CREATE TABLE subject (
-   name text,
+   codeName text,
    credits int,
-   PRIMARY KEY (name)
+   PRIMARY KEY (codeName)
 );

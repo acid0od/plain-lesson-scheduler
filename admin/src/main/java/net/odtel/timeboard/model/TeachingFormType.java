@@ -7,6 +7,9 @@
  */
 package net.odtel.timeboard.model;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public enum TeachingFormType {
     LECTURE("lecture"),
     PRACTICAL("practical"),
@@ -15,13 +18,23 @@ public enum TeachingFormType {
     EXAM("exam"),
     CREDIT("credit");
 
-    private String name;
+    private String codeName;
 
-    TeachingFormType(String name) {
-        this.name = name;
+    TeachingFormType(String codeName) {
+        this.codeName = codeName;
     }
 
-    public String getName() {
-        return name;
+    public String getCodeName() {
+        return codeName;
+    }
+
+    public static TeachingFormType findByCodeName(String name) {
+        for (TeachingFormType v : values()) {
+            log.info("v={}", v.getCodeName());
+            if (v.getCodeName().equals(name)) {
+                return v;
+            }
+        }
+        return null;
     }
 }

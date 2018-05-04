@@ -2,8 +2,38 @@
   <mat-table #table [dataSource]="dataSource">
 
     <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lecture">
+      <mat-header-cell *matHeaderCellDef> lecture</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lecture}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="practical">
+      <mat-header-cell *matHeaderCellDef> practical</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.practical}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="laboratoryWork">
+      <mat-header-cell *matHeaderCellDef> laboratoryWork</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.laboratoryWork}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="courseWork">
+      <mat-header-cell *matHeaderCellDef> courseWork</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.courseWork}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="exam">
+      <mat-header-cell *matHeaderCellDef> exam</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.exam}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="credit">
+      <mat-header-cell *matHeaderCellDef> credit</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.credit}}</mat-cell>
     </ng-container>
 
 

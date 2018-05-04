@@ -6,7 +6,7 @@ server:
 spring:
   data:
     cassandra:
-        keyspace-name: scheduler
+        keyspace-codeName: scheduler
         contact-points: localhost
 
 #spring:
@@ -27,7 +27,7 @@ spring:
 #TODO: figure out why I need this here and in bootstrap.yml
 spring:
   application:
-    name: testLatticeApp
+    codeName: testLatticeApp
 
 ribbon:
   ServerListRefreshInterval: 1000

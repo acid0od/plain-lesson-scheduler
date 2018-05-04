@@ -10,12 +10,12 @@ package net.odtel.timeboard.service;
 import com.datastax.driver.core.utils.UUIDs;
 import net.odtel.timeboard.model.Scheduler;
 import net.odtel.timeboard.model.SubjectCourse;
+import net.odtel.timeboard.model.TeachingFormType;
 import net.odtel.timeboard.repository.SchedulerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -52,12 +52,12 @@ public class SchedulerService {
     }
 
     public SubjectCourse getSubjectCourse(String subject) {
-        SubjectCourse course = new SubjectCourse(subject, new HashMap<String, Integer>());
+        SubjectCourse course = new SubjectCourse(subject);
 
         List<Scheduler> collect = StreamSupport
                 .stream(repository.findAll().spliterator(), false)
                 .filter(scheduler -> subject.equals(scheduler.getSubjectName()))
-                .peek(scheduler -> course.add(scheduler.getSubjectType(), scheduler.getHours()))
+                .peek(scheduler -> course.addHoursForGivenTeachingForm(TeachingFormType.findByCodeName(scheduler.getSubjectType()), scheduler.getHours()))
                 .collect(Collectors.toList());
 
         return course;
@@ -68,21 +68,18 @@ public class SchedulerService {
 
         Map<String, List<SubjectCourse>> collect = StreamSupport
                 .stream(repository.findAll().spliterator(), false)
-                .map(scheduler -> new SubjectCourse(scheduler.getSubjectName(), scheduler.getSubjectType(), scheduler.getHours()))
+                .map(scheduler -> SubjectCourse.of(scheduler.getSubjectName(), TeachingFormType.findByCodeName(scheduler.getSubjectType()), scheduler.getHours()))
                 .collect(Collectors.groupingBy(SubjectCourse::getTitle));
 
         for (Map.Entry<String, List<SubjectCourse>> stringListEntry : collect.entrySet()) {
-
             List<SubjectCourse> value = stringListEntry.getValue();
 
-            SubjectCourse subjectCourse1 = new SubjectCourse();
-            subjectCourse1.setTitle(stringListEntry.getKey());
-
+            SubjectCourse finalSubjectCourse = new SubjectCourse(stringListEntry.getKey());
             for (SubjectCourse subjectCourse : value) {
-                subjectCourse1.add(subjectCourse.getTeachingForms());
+                finalSubjectCourse.plus(subjectCourse);
             }
 
-            courses.add(subjectCourse1);
+            courses.add(finalSubjectCourse);
         }
 
         return courses;

@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class SubjectCourseListComponent implements OnInit {
   public subjectCourses: SubjectCourse[];
-  public displayedColumns = ['title'];
+  public displayedColumns = ['title', 'lecture', 'practical', 'laboratoryWork', 'courseWork', 'exam', 'credit'];
   public dataSource: DataSource<SubjectCourse>;
 
   constructor(public schedulerService: SchedulerService,
@@ -30,7 +30,7 @@ export class SubjectCourseListComponent implements OnInit {
           this.subjectCourses = subjectCourses;
           this.dataSource = new MatTableDataSource<SubjectCourse>(subjectCourses);
         }, (error) => {
-          console.log('Error' + error);
+          console.log('Error:' + JSON.stringify(error));
         }
       );
   }
