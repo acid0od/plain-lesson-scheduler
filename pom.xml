@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <codeName>plain-lesson-scheduler</codeName>
+    <name>plain-lesson-scheduler</name>
     <description>plain-lesson-scheduler</description>
 
     <parent>

@@ -7,7 +7,7 @@
     <artifactId>plain-lesson-scheduler-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <codeName>plain-lesson-scheduler-admin</codeName>
+    <name>plain-lesson-scheduler-admin</name>
     <description>plain-lesson-scheduler-admin</description>
 
     <parent>
