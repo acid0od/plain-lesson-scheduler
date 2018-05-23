@@ -4,7 +4,7 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
-import { MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -13,6 +13,7 @@ import { MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule } fr
     CdkTableModule,
     MatTableModule,
     MatButtonModule,
+    MatMenuModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule
@@ -21,6 +22,7 @@ import { MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule } fr
     CdkTableModule,
     MatTableModule,
     MatButtonModule,
+    MatMenuModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule

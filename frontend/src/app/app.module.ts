@@ -10,6 +10,7 @@ import { SchedulerModule } from './scheduler/scheduler.module';
 import { NoContentComponent } from './no-content/no-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SubjectsModule } from './subjects/subjects.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SharedModule.forRoot(),
     NotificationModule,
     SchedulerModule,
+    SubjectsModule,
     FlexLayoutModule,
     AppRoutingModule
   ],
