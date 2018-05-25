@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../shared/api.service';
-import { Observable } from 'rxjs/Observable';
 import { SubjectCourse } from '../model/subject-course-model';
+import { Observable } from 'rxjs/index';
 
 @Injectable()
 export class SchedulerService {

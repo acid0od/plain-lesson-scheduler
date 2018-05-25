@@ -4,28 +4,55 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
-import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CdkTableModule,
     MatTableModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   exports: [
+    ReactiveFormsModule,
     CdkTableModule,
     MatTableModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   declarations: [],
   providers: []

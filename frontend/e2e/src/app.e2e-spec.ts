@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ek-scheduler App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('ek-scheduler App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to ek!');
+    expect(page.getParagraphText()).toEqual('Welcome to ng-add!');
   });
 });

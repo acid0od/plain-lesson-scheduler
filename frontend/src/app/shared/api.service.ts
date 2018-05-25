@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/index';
 
 @Injectable()
 export class ApiService {

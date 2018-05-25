@@ -4,7 +4,7 @@ import { SubjectsListComponent } from './subjects-list.component';
 import { SubjectsEditComponent } from './subjects-edit.component';
 
 const subjectsRoutes: Routes = [
-  /*{
+  {
     path: '', component: SubjectsListComponent
   },
   {
@@ -12,16 +12,7 @@ const subjectsRoutes: Routes = [
   },
   {
     path: ':id', component: SubjectsEditComponent
-  }*/
-  {
-    path: '',
-    component: SubjectsListComponent,
-    children: [
-      {path: 'edit', component: SubjectsEditComponent},
-      {path: ':id', component: SubjectsEditComponent}
-    ]
   }
-
 ];
 
 @NgModule({

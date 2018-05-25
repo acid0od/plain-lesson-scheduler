@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>
+    scheduler
+  </mat-card-title>
+
+  <mat-card-content class="form-container">
+    <form novalidate
+          (ngSubmit)="save()"
+          [formGroup]="schedulerForm">
+
+      <div class="form-container">
+
+        <mat-form-field>
+          <input matInput placeholder="Subject Name" id="subjectName" formControlName="subjectName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Subject Type" formControlName="subjectType" id="subjectType">
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+       <button mat-button (click)="save()">Save</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
