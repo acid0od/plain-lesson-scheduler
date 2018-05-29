@@ -13,6 +13,7 @@ import net.odtel.timeboard.model.SubjectCourse;
 import net.odtel.timeboard.service.SchedulerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,13 +58,13 @@ public class SchedulerController {
         return new ResponseEntity<>(schedulerService.getAllSchedulers(), HttpStatus.OK);
     }
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "/scheduler/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody Scheduler scheduler) {
         schedulerService.create(scheduler);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/scheduler/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> update(@PathVariable("id") UUID id,
                                        @RequestBody Scheduler scheduler) {
         schedulerService.update(id, scheduler);
