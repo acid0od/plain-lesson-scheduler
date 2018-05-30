@@ -49,7 +49,7 @@ export class SchedulerEditComponent implements OnInit {
   private formBuild(): void {
     this.schedulerForm = this.fb.group({
       subjectName: [''],
-      subjectType: [''],
+      subjectType: [0],
       semester: [0],
       week: [0],
       hours: [0]

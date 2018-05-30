@@ -29,10 +29,9 @@ public class Scheduler {
     private String subjectName;
 
     @Column("subject_type")
-    private String subjectType;
+    private int subjectType;
 
     private int semester;
     private int week;
     private int hours;
-
 }

@@ -11,27 +11,26 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public enum TeachingFormType {
-    LECTURE("lecture"),
-    PRACTICAL("practical"),
-    LABORATORYWORK("laboratoryWork"),
-    COURSEWORK("courseWork"),
-    EXAM("exam"),
-    CREDIT("credit");
+    LECTURE(0),
+    PRACTICAL(1),
+    LABORATORYWORK(2),
+    COURSEWORK(3),
+    EXAM(4),
+    CREDIT(5);
 
-    private String codeName;
+    private int codeName;
 
-    TeachingFormType(String codeName) {
+    TeachingFormType(int codeName) {
         this.codeName = codeName;
     }
 
-    public String getCodeName() {
+    public int getCodeName() {
         return codeName;
     }
 
-    public static TeachingFormType findByCodeName(String name) {
+    public static TeachingFormType findByCodeName(int name) {
         for (TeachingFormType v : values()) {
-            log.info("v={}", v.getCodeName());
-            if (v.getCodeName().equals(name)) {
+            if (v.getCodeName() == name) {
                 return v;
             }
         }

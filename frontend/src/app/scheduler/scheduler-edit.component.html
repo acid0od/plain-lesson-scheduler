@@ -18,7 +18,7 @@
 
           <mat-form-field>
             <mat-select placeholder="Subject Type" formControlName="subjectType" id="subjectType">
-              <mat-option *ngFor="let type of types" [value]="type">
+              <mat-option *ngFor="let type of types; index as i" [value]="i">
                 {{ type }}
               </mat-option>
             </mat-select>

@@ -7,7 +7,7 @@ CREATE TABLE scheduler (
   semester int,
   week int,
   subject_name text,
-  subject_type text,
+  subject_type int,
   hours int,
   PRIMARY KEY (id)
 );
